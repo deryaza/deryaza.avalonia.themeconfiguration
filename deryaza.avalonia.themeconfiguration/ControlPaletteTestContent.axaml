@@ -1,0 +1,150 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="deryaza.avalonia.themeconfiguration.ControlPaletteTestContent">
+    <ScrollViewer>
+        <StackPanel>
+            <StackPanel Margin="24,20,24,20" Orientation="Vertical">
+                <Border Height="40" Margin="0,0,0,20">
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontWeight="SemiBold"
+                        LineHeight="20" />
+                </Border>
+                <TextBlock
+                    Text="TestContentButtonsBlock"
+                    Margin="0,0,0,16" />
+                <Button Content="TestContentEnabledButton" Margin="0,0,0,12" />
+                <Button
+                    Content="TestContentDisabledButton"
+                    Margin="0,0,0,12"
+                    IsEnabled="False" />
+                <ToggleButton Content="TestContentToggleButton" Margin="0,0,0,12" />
+                <ToggleButton
+                    Content="TestContentToggledButton"
+                    Margin="0,0,0,12"
+                    IsChecked="True" />
+                <Button
+                    Content="TestContentEnabledAccentButton"
+                    Margin="0,0,0,12" />
+                <Button
+                    Content="TestContentDisabledAccentButton"
+                    Margin="0,0,0,28"
+                    IsEnabled="False" />
+                <TextBlock
+                    Text="TestContentCheckboxBlock"
+                    Margin="0,0,0,16" />
+                <CheckBox Content="TestContentUncheckedCheckbox" Margin="0,0,0,12" />
+                <CheckBox
+                    Content="TestContentCheckedCheckbox"
+                    Margin="0,0,0,12"
+                    IsChecked="True" />
+                <CheckBox
+                    Content="TestContentThirdStateCheckbox"
+                    Margin="0,0,0,12"
+                    IsChecked="{x:Null}" />
+                <CheckBox
+                    Content="TestContentDisabledCheckbox"
+                    Margin="0,0,0,28"
+                    IsChecked="True"
+                    IsEnabled="False" />
+                <TextBlock
+                    Text="TestContentRadioBlock"
+                    Margin="0,0,0,16" />
+                <RadioButton
+                    Content="TestContentUncheckedRadio"
+                    Margin="0,0,0,12"
+                    GroupName="Test1" />
+                <RadioButton
+                    Content="TestContentCheckedRadio"
+                    Margin="0,0,0,12"
+                    GroupName="Test1"
+                    IsChecked="True" />
+                <RadioButton
+                    Content="TestContentDisabledRadio"
+                    Margin="0,0,0,28"
+                    GroupName="Test2"
+                    IsChecked="True"
+                    IsEnabled="False" />
+                <TextBlock
+                    Text="TestContentComboBlock"
+                    Margin="0,0,0,16" />
+                <ComboBox Width="200" Margin="0,0,0,12">
+                    <ComboBox.Items>
+                        <ComboBoxItem Content="TestContentComboItem1" IsSelected="True" />
+                        <ComboBoxItem Content="TestContentComboItem2" />
+                        <ComboBoxItem Content="TestContentComboItem3" />
+                    </ComboBox.Items>
+                </ComboBox>
+                <ComboBox
+                    Width="200"
+                    Margin="0,0,0,28"
+                    IsEditable="True">
+                    <ComboBox.Items>
+                        <ComboBoxItem Content="TestContentEditableComboItem1" IsSelected="True" />
+                        <ComboBoxItem Content="TestContentEditableComboItem2" />
+                        <ComboBoxItem Content="TestContentEditableComboItem3" />
+                    </ComboBox.Items>
+                </ComboBox>
+                <TextBlock
+                    Text="TestContentTextboxBlock"
+                    Margin="0,0,0,16" />
+                <TextBox
+                    Text="TestContentTextbox"
+                    Width="200"
+                    Margin="0,0,0,28"
+                    HorizontalAlignment="Left" />
+                <TextBlock
+                    Text="TestContentToggleBlock"
+                    Margin="0,0,0,16" />
+                <ToggleSwitch Margin="0,0,0,12" IsChecked="False" />
+                <ToggleSwitch Margin="0,0,0,28" IsChecked="True" />
+                <TextBlock
+                    Text="TestContentSliderBlock"
+                    Margin="0,0,0,16" />
+                <Slider
+                    Margin="0,0,0,28"
+                    HorizontalAlignment="Stretch"
+                    Maximum="100"
+                    Minimum="0"
+                    Value="50" />
+                <TextBlock
+                    Text="TestContentListviewBlock"
+                    Margin="0,0,0,16" />
+                <ListBox Margin="0,0,0,28" HorizontalAlignment="Stretch">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.Items>
+                        <ListBoxItem Content="TestContentListviewItem1" IsEnabled="False" />
+                        <ListBoxItem Content="TestContentListviewItem2" IsSelected="True" />
+                        <ListBoxItem Content="TestContentListviewItem3" />
+                        <ListBoxItem Content="TestContentListviewItem4" />
+                    </ListBox.Items>
+                </ListBox>
+                <TextBlock
+                    Text="TestContentCommandBarBlock"
+                    Margin="0,0,0,16" />
+                <TextBlock
+                    Text="TestContentDatePickerBlock"
+                    Margin="0,0,0,16" />
+                <DatePicker Margin="0,0,0,28" HorizontalAlignment="Stretch" />
+                <TextBlock
+                    Text="TestContentTimePickerBlock"
+                    Margin="0,0,0,16" />
+                <TimePicker Margin="0,0,0,0" HorizontalAlignment="Stretch" />
+                <TextBlock
+                    Text="TestContentCalendarViewBlock"
+                    Margin="0,0,0,16" />
+                <Calendar Margin="0,0,0,28" HorizontalAlignment="Stretch" />
+
+                <DataGrid x:Name="DataGrid" AutoGenerateColumns="True" MaxHeight="600">
+                </DataGrid>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

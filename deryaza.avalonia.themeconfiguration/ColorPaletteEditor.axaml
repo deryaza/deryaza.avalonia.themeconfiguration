@@ -1,0 +1,46 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:themeconfiguration="clr-namespace:deryaza.avalonia.themeconfiguration"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Name="Root"
+             x:Class="deryaza.avalonia.themeconfiguration.ColorPaletteEditor">
+    <StackPanel>
+        <TextBlock
+            Text="{Binding #Root.Text}"
+            Margin="0,32,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontWeight="SemiBold"
+            LineHeight="20" />
+
+        <Grid ColumnDefinitions="*, *" ColumnSpacing="10" RowDefinitions="Auto, Auto" Margin="0,8,0,32">
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Светлая тема"
+                Margin="0,0,8,12"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                LineHeight="16" />
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="Тёмная тема"
+                Margin="0,0,8,12"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                LineHeight="16" />
+
+            <themeconfiguration:ColorPaletteEntryEditor
+                Color="{Binding #Root.LightColor}"
+                Grid.Row="1"
+                Grid.Column="0" />
+            <themeconfiguration:ColorPaletteEntryEditor
+                Color="{Binding #Root.DarkColor}"
+                Grid.Row="1"
+                Grid.Column="1" />
+        </Grid>
+    </StackPanel>
+</UserControl>

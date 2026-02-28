@@ -1,0 +1,48 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:Avalonia.Markup.Xaml.Converters;assembly=Avalonia.Markup.Xaml"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Name="Root"
+             x:Class="deryaza.avalonia.themeconfiguration.ColorPaletteEntryEditor">
+    <UserControl.Resources>
+        <converters:ColorToBrushConverter x:Key="BrushConverter" />
+    </UserControl.Resources>
+    <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Button.Flyout>
+            <Flyout>
+                <ColorView Color="{Binding #Root.Color}" />
+            </Flyout>
+        </Button.Flyout>
+        <Button.Template>
+            <ControlTemplate>
+                <Grid
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch">
+                    <Border
+                        Width="44"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Stretch"
+                        Background="{Binding #Root.Color, Mode=OneWay, Converter={StaticResource BrushConverter}}"
+                        CornerRadius="0 4 4 0" />
+                    <Border
+                        Background="Transparent"
+                        Height="56"
+                        BorderBrush="{DynamicResource TextControlBorderBrush}"
+                        BorderThickness="{DynamicResource TextControlBorderThemeThickness}"
+                        CornerRadius="4">
+                    </Border>
+
+                    <TextBlock
+                        Margin="6,0,6,8"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Bottom"
+                        Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"
+                        IsHitTestVisible="False"
+                        Text="{Binding #Root.Color, Mode=OneWay}" />
+                </Grid>
+            </ControlTemplate>
+        </Button.Template>
+    </Button>
+</UserControl>

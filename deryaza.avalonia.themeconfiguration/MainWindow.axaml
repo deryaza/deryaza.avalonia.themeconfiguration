@@ -1,0 +1,120 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:deryaza.avalonia.themeconfiguration"
+        xmlns:viewModels="clr-namespace:deryaza.avalonia.themeconfiguration.ViewModels"
+        x:Class="deryaza.avalonia.themeconfiguration.MainWindow"
+        x:DataType="viewModels:MainViewModel"
+        Title="Font-based Scaling Demo (Fluent)"
+        Width="980" Height="650">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="304" />
+        </Grid.ColumnDefinitions>
+        <Grid
+            x:Name="MainContentArea"
+            Grid.Column="0"
+            Margin="12,12,0,12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Border
+                Grid.Column="0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                CornerRadius="2 0 0 2" />
+            <Border
+                Grid.Column="1"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                CornerRadius="0 2 2 0" />
+
+            <ScrollViewer
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                HorizontalScrollBarVisibility="Disabled"
+                VerticalScrollBarVisibility="Auto">
+                <Grid
+                    x:Name="TestContentContainer"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <ThemeVariantScope
+                        Grid.Column="0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top"
+                        RequestedThemeVariant="Light">
+                        <Border Background="{DynamicResource SystemRegionColor}">
+                            <local:ControlPaletteTestContent
+                                x:Name="LightTestContent"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Top">
+                            </local:ControlPaletteTestContent>
+                        </Border>
+                    </ThemeVariantScope>
+
+                    <ThemeVariantScope
+                        Grid.Column="1"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top"
+                        RequestedThemeVariant="Dark">
+                        <Border Background="{DynamicResource SystemRegionColor}">
+                            <local:ControlPaletteTestContent
+                                x:Name="DarkTestContent"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Top">
+                            </local:ControlPaletteTestContent>
+                        </Border>
+                    </ThemeVariantScope>
+                </Grid>
+            </ScrollViewer>
+
+        </Grid>
+        <Grid
+            x:Name="PropertyInspectorArea"
+            Grid.Column="1"
+            Margin="12">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ScrollViewer
+                Grid.Row="0"
+                Margin="10,0,0,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                HorizontalScrollBarVisibility="Disabled"
+                VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <local:ColorPaletteEditor LightColor="{Binding RegionLightColor}"
+                                              DarkColor="{Binding RegionDarkColor}" Text="Регион" />
+                    <local:ColorPaletteEditor LightColor="{Binding BaseLightColor}"
+                                              DarkColor="{Binding BaseDarkColor}" Text="Базовый цвет" />
+                    <local:ColorPaletteEditor LightColor="{Binding PrimaryLightColor}"
+                                              DarkColor="{Binding PrimaryDarkColor}" Text="Основной цвет" />
+                </StackPanel>
+            </ScrollViewer>
+            <Grid
+                Grid.Row="1"
+                Margin="12,12,12,12"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Bottom">
+                <Button
+                    Content="Save!"
+                    Grid.Column="0"
+                    CornerRadius="2"
+                    Margin="0,0,6,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Bottom" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
